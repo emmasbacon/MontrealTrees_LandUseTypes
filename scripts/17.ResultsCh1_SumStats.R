@@ -338,7 +338,7 @@ species_richness_gst
 
 ###PUBLIC TREE CSV
 
-public <- read.csv("input/arbres-publics.csv")
+public <- read.csv("input/large/arbres-publics.csv")
 
 library(dplyr)
 

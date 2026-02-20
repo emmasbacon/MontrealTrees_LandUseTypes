@@ -197,7 +197,7 @@ pA_hedge_grid <- ggplot(data = trees_nohedge,
              mapping = aes(x = DBH_fnl, group = updtd_ln, color = updtd_ln)) +
   geom_density(aes(y = after_stat(count)), size = 0.75, alpha = 0.2) +
   scale_color_manual(values = gs_colors) +
-  scale_x_continuous(breaks = seq(0, 175, by = 10)) +  # vertical grid lines every 10 cm
+  scale_x_continuous(breaks = seq(0, 175, by = 10)) +  
   labs(
     x = "DBH (cm)",
     y = "Density",

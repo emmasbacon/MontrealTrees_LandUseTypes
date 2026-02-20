@@ -295,35 +295,6 @@ combcov_subsites <- bind_rows(sumcov_subsites, pie_cov)
 saveRDS(combcov_subsites, 'output/rare_coverage_subsites.rds')
 
 
-# Differences between Abundance vs. Coverage vs. Observed  ----------------
-
-diversity_subsites <- readRDS("output/diversitymetrics_table_rare.rds")
-
-div_long <- diversity_subsites %>%
-  select(subsite, GreenSpace, richness, Rare_rich, Cov_rich) %>%
-  pivot_longer(cols = c(richness, Rare_rich, Cov_rich),
-               names_to = "method", values_to = "richness") %>%
-  mutate(method = recode(method,
-                         richness = "observed",
-                         Rare_rich = "abundance",
-                         Cov_rich = "coverage"))
-
-aov_rich <- aov(richness ~ method + Error(subsite/method), data = div_long)
-summary(aov_rich)
-
-
-resids <- residuals(aov_rich[["subsite:method"]])
-hist(resids, main = "Histogram of Residuals", xlab = "Residuals")
-qqnorm(resids)
-qqline(resids, col = "red")
-shapiro.test(resids)
-
-#Not normal, so Friedman
-friedman.test(richness ~ method | subsite, data = div_long)
-
-#Pairwise wilcox test to see which methods differ
-pairwise.wilcox.test(div_long$richness, div_long$method, 
-                     paired = TRUE, p.adjust.method = "BH")
 
 
 

@@ -53,4 +53,5 @@ trees <- trees %>%
 trees <- trees %>% select(-DBH_UQA, -DBH_VMT, -H_S_L_W, -Hdg_NmS, -Comment, -Citizen)
 
 
+write_sf(trees, 'output/land012825.shp')
 write_sf(trees, 'output/trees012125.shp')
