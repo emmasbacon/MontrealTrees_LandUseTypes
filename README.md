@@ -1,6 +1,6 @@
 # MontrealTrees_LandUseTypes
 
-Code, data, and results for Bacon et al. Land use types differ strongly in urban forest diversity, composition, and structure. Submitted to Landscape and Urban Planning
+Code, data, and results for Bacon et al. Land use types differ strongly in urban forest diversity, composition, and structure. Submitted to Landscape and Urban Planning.
 
 ## Abstract
 
